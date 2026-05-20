@@ -38,11 +38,14 @@ export default function Registration() {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch("http://localhost:5000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
-      });
+      const response = await fetch(
+        "https://js-learning-backend.onrender.com/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password }),
+        },
+      );
 
       const data = await response.json();
       if (response.ok) {

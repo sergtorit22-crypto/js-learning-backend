@@ -140,7 +140,7 @@ export default function App() {
     try {
       // Робимо запит до таблиці LESSON_RESULTS за id користувача
       const response = await fetch(
-        `http://localhost:5000/lesson_results?user_id=${user.id}`,
+        `https://js-learning-backend.onrender.com/lesson_results?user_id=${user.id}`,
       );
       const data = await response.json();
       setUserResults(data);
@@ -158,7 +158,7 @@ export default function App() {
   // Функція для отримання даних з сервера
   const fetchLessons = async () => {
     try {
-      const response = await fetch("http://localhost:5000/lessons");
+      const response = await fetch("https://js-learning-backend.onrender.com/lessons");
       const data = await response.json();
       setLessons(data);
       setLoading(false);
@@ -251,7 +251,9 @@ export default function App() {
   // Функція для отримання списку уроків з бази даних
   const fetchLessons = async () => {
     try {
-      const response = await fetch("http://localhost:5000/lessons");
+      const response = await fetch(
+        "https://js-learning-backend.onrender.com/lessons",
+      );
       const data = await response.json();
       setLessons(data);
       setLoading(false);
@@ -266,7 +268,7 @@ export default function App() {
     if (!user?.id) return;
     try {
       const response = await fetch(
-        `http://localhost:5000/lesson_results?user_id=${user.id}`,
+        `https://js-learning-backend.onrender.com/lesson_results?user_id=${user.id}`,
       );
       const data = await response.json();
       setUserResults(data);

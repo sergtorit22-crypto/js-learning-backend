@@ -12,7 +12,7 @@ export default function ManageLessons() {
 
   const fetchLessons = async () => {
     try {
-      const res = await fetch("http://localhost:5000/lessons");
+      const res = await fetch("https://js-learning-backend.onrender.com/lessons");
       const data = await res.json();
       setLessons(data);
     } catch (err) {
@@ -26,7 +26,7 @@ export default function ManageLessons() {
 
   const confirmDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/lessons/${id}`, {
+      const res = await fetch(`https://js-learning-backend.onrender.com/lessons/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -136,7 +136,9 @@ export default function ManageLessons() {
   // Завантаження списку уроків з сервера
   const fetchLessons = async () => {
     try {
-      const res = await fetch("http://localhost:5000/lessons");
+      const res = await fetch(
+        "https://js-learning-backend.onrender.com/lessons",
+      );
       const data = await res.json();
       setLessons(data);
     } catch (err) {
@@ -152,9 +154,12 @@ export default function ManageLessons() {
   // Підтвердження та видалення уроку за його ID
   const confirmDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/lessons/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://js-learning-backend.onrender.com/lessons/${id}`,
+        {
+          method: "DELETE",
+        },
+      );
       if (res.ok) {
         notify("Видалено успішно", "success");
         setDeletingId(null);

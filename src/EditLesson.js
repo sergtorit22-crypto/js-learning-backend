@@ -23,7 +23,7 @@ export default function EditLesson() {
     const fetchLesson = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/lessons-edit/${id}`,
+          `https://js-learning-backend.onrender.com/lessons-edit/${id}`,
         );
         if (!response.ok) throw new Error("Урок не знайдено");
         const data = await response.json();
@@ -89,11 +89,14 @@ export default function EditLesson() {
     const payload = { ...lessonData, questions, created_by: user.id };
 
     try {
-      const response = await fetch(`http://localhost:5000/edit-lesson/${id}`, {
-        method: "PUT", // Використовуємо PUT для оновлення
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        `https://js-learning-backend.onrender.com/edit-lesson/${id}`,
+        {
+          method: "PUT", // Використовуємо PUT для оновлення
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
+      );
 
       if (response.ok) {
         notify("Урок успішно оновлено!", "success");

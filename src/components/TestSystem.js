@@ -28,17 +28,20 @@ export default function TestSystem({ questions, lessonId }) {
     if (user && user.id) {
       setIsSubmitting(true);
       try {
-        const response = await fetch("http://localhost:5000/results", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            user_id: user.id,
-            lesson_id: lessonId,
-            score: score,
-            total_questions: questions.length,
-            completed: true,
-          }),
-        });
+        const response = await fetch(
+          "https://js-learning-backend.onrender.com/results",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              user_id: user.id,
+              lesson_id: lessonId,
+              score: score,
+              total_questions: questions.length,
+              completed: true,
+            }),
+          },
+        );
         if (response.ok) {
           // ТУТ ВСТАВЛЯЄМО ПОВІДОМЛЕННЯ ПРО УСПІХ
           notify("Результат тесту успішно збережено! ", "success");

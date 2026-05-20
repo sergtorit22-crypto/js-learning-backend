@@ -242,3 +242,47 @@
 .hero-section:hover .js-logo-glow {
   transform: rotate(0deg) scale(1.05);
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+
+    /* Зменшуємо внутрішні відступи, щоб зробити блок вужчим за висотою */
+    padding: 20px 15px;
+    /* Зменшуємо зовнішні маргіни по боках, щоб він акуратно сидів на екрані */
+    margin: 15px 10px 5px 10px;
+    gap: 15px; /* Зменшуємо відстань між текстом і логотипом */
+  }
+
+  .hero-section h1 {
+    font-size: 22px; /* Менший, акуратний заголовок */
+    margin-bottom: 8px;
+  }
+
+  .hero-section p {
+    font-size: 14px; /* Компактний текст опису */
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .hero-badges {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .hero-badges span {
+    padding: 4px 10px; /* Менші бейджики */
+    font-size: 12px;
+  }
+
+  /* Робимо логотип JavaScript значно меншим, щоб він не розпирав блок */
+  .js-logo-glow {
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.3); /* Легше свічення */
+  }
+}

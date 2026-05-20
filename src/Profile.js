@@ -22,11 +22,7 @@ export default function Profile() {
             <button onClick={() => navigate("/add-content")}>
               Додати новий урок
             </button>
-            {/* 
-            <button onClick={() => navigate(`/edit-lesson/${lesson.id}`)}>
-              Змінити контент
-            </button>
-*/}
+
             <button
               className="delete-btn"
               onClick={() => navigate("/manage-lessons")}

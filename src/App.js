@@ -323,6 +323,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/manage-lessons" element={<ManageLessons />} />
           <Route path="/edit-lesson/:id" element={<EditLesson />} />
+          <Route path="/about" element={<About />} />
         </Routes>
 
         <Footer />

@@ -32,41 +32,65 @@ export default function Content({
   };
 
   return (
-    <div className="contentContainer">
-      {lessons.map((lesson) => {
-        // Пошук проходження тесту для поточного уроку
-        const lessonResult = safeResults.find(
-          (res) => String(res.lesson_id) === String(lesson.id),
-        );
-        const isFinished = lessonResult && lessonResult.completed;
+    <div className="main-page-wrapper">
+      {/* СУЧАСНИЙ ПРИВІТАЛЬНИЙ БАНЕР */}
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1>Інтерактивний курс JavaScript для початківців</h1>
+          <p>
+            Опануй базові концепції програмування, виконуй практичні завдання
+            прямо у вбудованому інтерпретаторі коду та відстежуй свій прогрес у
+            реальному часі!
+          </p>
 
-        return (
-          <Link
-            to={`/lesson/${lesson.id}`}
-            key={lesson.id}
-            className="lesson-link"
-          >
-            <div
-              className={`oneContainer ${isFinished ? "finished" : "not-finished"}`}
+          {/* Акуратні кольорові теги-бейджики */}
+          <div className="hero-badges">
+            <span className="badge-js">JS 2026</span>
+            <span className="badge-level">Рівень: Базовий</span>
+          </div>
+        </div>
+
+        {/* Права частина: Ефектна емблема JavaScript із неоновим підсвічуванням */}
+        <div className="hero-image">
+          <div className="js-logo-glow">JS</div>
+        </div>
+      </div>
+      <div className="contentContainer">
+        {lessons.map((lesson) => {
+          // Пошук проходження тесту для поточного уроку
+          const lessonResult = safeResults.find(
+            (res) => String(res.lesson_id) === String(lesson.id),
+          );
+          const isFinished = lessonResult && lessonResult.completed;
+
+          return (
+            <Link
+              to={`/lesson/${lesson.id}`}
+              key={lesson.id}
+              className="lesson-link"
             >
-              <p className="lesson-card-title">{lesson.title}</p>
+              <div
+                className={`oneContainer ${isFinished ? "finished" : "not-finished"}`}
+              >
+                <p className="lesson-card-title">{lesson.title}</p>
 
-              {/* Відображення блоку з балами, якщо урок успішно здано */}
-              {isFinished && (
-                <div className="result-badge-block">
-                  <div className="result-score">
-                    Результат: {lessonResult.score} /{" "}
-                    {lessonResult.total_questions}
+                {/* Відображення блоку з балами, якщо урок успішно здано */}
+                {isFinished && (
+                  <div className="result-badge-block">
+                    <div className="result-score">
+                      Результат: {lessonResult.score} /{" "}
+                      {lessonResult.total_questions}
+                    </div>
+                    <div className="result-date">
+                      Завершено: {formatDate(lessonResult.completed_at)}
+                    </div>
                   </div>
-                  <div className="result-date">
-                    Завершено: {formatDate(lessonResult.completed_at)}
-                  </div>
-                </div>
-              )}
-            </div>
-          </Link>
-        );
-      })}
+                )}
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

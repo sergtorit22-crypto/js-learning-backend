@@ -1,0 +1,38 @@
+.correctText {
+  color: green;
+  font-weight: bold;
+}
+.wrongText {
+  color: red;
+  font-weight: bold;
+}
+.correct-border {
+  border-left: 5px solid green;
+  padding-left: 10px;
+}
+.wrong-border {
+  border-left: 5px solid red;
+  padding-left: 10px;
+}
+.tabs {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+.tabs button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+.tabs button:hover {
+  background-color: orange;
+  color: white;
+}
+.test-item {
+  margin-bottom: 30px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding-left: 30px;
+}

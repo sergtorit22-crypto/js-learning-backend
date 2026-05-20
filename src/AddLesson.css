@@ -1,0 +1,173 @@
+/* Головний контейнер панелі адміністрування */
+.admin-container {
+  max-width: 900px; /* Трохи збільшено ширину для великого шрифту */
+  margin: 20px auto;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 20px; /* Базовий розмір шрифту для всього контейнера */
+}
+
+/* Форма додавання/редагування уроку */
+.lesson-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Секція (картка) форми */
+.section {
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Загальні стилі для полів введення та вибору */
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px; /* Збільшено відступи під великий шрифт */
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 20px; /* Збільшено шрифт до 20px */
+}
+
+/* Базове поле для введення коду */
+.code-input {
+  font-family: monospace;
+  background-color: #272822;
+  color: #f8f8f2;
+  height: 120px;
+  font-size: 20px; /* Збільшено шрифт коду */
+}
+
+/* Блок одного тестового запитання */
+.question-block {
+  border-left: 5px solid #007bff;
+  padding-left: 20px;
+  margin-bottom: 25px;
+  background: #f0f7ff;
+  padding-bottom: 15px;
+  font-size: 20px; /* Збільшено шрифт блоку запитання */
+}
+
+/* Рядок з варіантом відповіді */
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* Чекбокси та радіокнопки у рядках варіантів */
+.option-row input[type="checkbox"],
+.option-row input[type="radio"] {
+  width: 20px; /* Збільшено розмір самих прапорців */
+  height: 20px;
+}
+
+/* Кнопка додавання запитання */
+.add-q-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 20px; /* Збільшено шрифт кнопки */
+  border-radius: 4px;
+}
+
+/* Головна кнопка збереження уроку */
+.save-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 18px;
+  font-size: 22px; /* Зроблено трохи більшою за інший текст */
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.save-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Шапка блоку запитання (запитання + кнопка видалення) */
+.q-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Кнопка видалення запитання */
+.del-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px; /* Збільшено шрифт кнопки видалення */
+}
+
+/* Кнопка-хрестик для видалення варіанту відповіді */
+.del-opt {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 26px; /* Збільшено розмір хрестика */
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.del-opt:hover {
+  color: #cc0000;
+}
+
+/* Текстове поле для самого запитання */
+.question-textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  resize: vertical;
+  font-size: 20px; /* Збільшено шрифт запитання */
+}
+
+/* Автоматично розширювані текстові поля */
+.auto-resize-textarea,
+.question-textarea {
+  overflow: hidden;
+  min-height: 90px;
+  resize: none;
+  line-height: 1.5;
+  transition: height 0.1s ease;
+  font-size: 20px; /* Уніфіковано шрифт */
+}
+
+/* Сучасне темне поле для введення коду (з автовисотою) */
+.code-input.auto-resize {
+  width: 100%;
+  min-height: 180px;
+  background: #282c34;
+  color: #abb2bf;
+  font-family: "Courier New", monospace;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #181a1f;
+  line-height: 1.6;
+  resize: none;
+  overflow: hidden;
+  transition: height 0.1s ease;
+  font-size: 20px; /* Збільшено шрифт для комфортного кодингу */
+}

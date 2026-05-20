@@ -1,0 +1,69 @@
+.CodeMirror {
+  border: 1px solid #ccc;
+  height: 300px;
+}
+
+/* Скасовуємо загальний колір шрифту для всього, що всередині CodeMirror */
+.CodeMirror * {
+  color: inherit; /* Дозволяємо CodeMirror самому вирішувати, який колір ставити */
+}
+
+/* Примусово налаштовуємо кольори для теми Monokai, щоб твій "*" їх не перебивав */
+.cm-s-monokai .CodeMirror-code span {
+  color: #a8ff9d; /* Стандартний світлий колір тексту Monokai */
+}
+
+/* Окремо підсвічуємо пунктуацію та оператори, які у тебе "зникали" */
+.cm-s-monokai span.cm-punctuation {
+  color: #f8f8f2 !important;
+}
+
+.cm-s-monokai span.cm-operator {
+  color: #f92672 !important; /* Рожевий для крапок, плюсів тощо */
+}
+
+.cm-s-monokai span.cm-keyword {
+  color: #66d9ef !important; /* Блакитний для let, const */
+}
+
+.cm-s-monokai span.cm-string {
+  color: #e6db74 !important; /* Жовтий для рядків */
+}
+
+#output {
+  background: #000000;
+  color: #0f0;
+  padding: 10px;
+  min-height: 100px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+.lessonLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Щоб блоки починалися зверху */
+  gap: 30px; /* Відстань між ними */
+  padding: 20px;
+  width: 100%; /* Розтягуємо на всю ширину */
+  box-sizing: border-box; /* Щоб падінги не збільшували ширину */
+}
+
+/* Стилі для тексту уроку (ліва частина) */
+.lesonCont {
+  flex: 1; /* Займає рівно половину доступного простору */
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: orange;
+  padding: 20px; /* Додано внутрішній відступ, щоб текст не лип до рамки */
+  min-height: 400px; /* Можна задати мінімальну висоту */
+}
+
+/* Стилі для контейнера інтерпретатора (права частина) */
+.interpreterBox {
+  flex: 1; /* Також займає рівно половину */
+  display: flex;
+  flex-direction: column; /* Щоб кнопка та вивід були один під одним */
+  font-size: 20px;
+}

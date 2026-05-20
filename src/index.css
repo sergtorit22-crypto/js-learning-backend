@@ -1,13 +1,210 @@
-body {
+:root {
+  --bg-main: #f0f4f8; /* Легкий, приємний синювато-сірий фон для всього екрана */
+  --bg-card: #ffffff; /* Чистий білий колір для внутрішньої частини карток */
+
+  /* Головні кольори, які ти хотів */
+  --header-bg: #0f172a; /* Глибокий, красивий темно-синій колір для шапки (замість rgb(0, 19, 128)) */
+  --orange-accent: #f97316; /* Насичений, але професійний оранжевий колір */
+  --orange-hover: #facc15; /* Світло-оранжевий / м'який жовтий для ефекту наведення */
+
+  --text-main: #1e293b; /* Темний текст для контенту */
+  --text-muted: #94a3b8; /* Світліший текст для хедера */
+  --success: #16a34a; /* Зелений для виконаних уроків */
+  --error: #dc2626; /* Червоний для помилок */
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 25px;
+  line-height: 1.6;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-main);
+  color: var(--text-main);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Хедер (Темно-синій, контрастний) */
+header {
+  width: 100%;
+  background-color: var(--header-bg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.containerHeader {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 18px 20px;
+  gap: 15px;
+}
+
+/* Посилання в хедері */
+.containerHeader a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* Ефекти для лінків: колір змінюється на оранжевий */
+.containerHeader a:hover {
+  color: var(--orange-accent);
+  border-top: 2px solid var(--orange-accent); /* Повернув твій ефект border-top */
+}
+
+.containerHeader a.active {
+  color: var(--orange-accent);
+  border-bottom: 2px solid var(--orange-accent);
+  font-weight: 600;
+}
+
+/* Центральний контейнер (форми, кабінет тощо) */
+.container {
+  text-align: center;
+  margin: 80px auto 40px auto;
+  background-color: var(--bg-card);
+  border: 2px solid #cbd5e1;
+  padding: 30px;
+  border-radius: 12px;
+  width: 50%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+/* Кнопки */
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--orange-accent);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #ea580c; /* Трохи темніший оранжевий при натисканні */
+}
+
+h1 {
+  color: var(--text-main);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Контентна область */
+.container2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Логотип */
+.header-logo {
+  width: 100px;
+}
+
+/* Контейнер для блоку авторизації (праворуч) */
+.header-auth-block {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+/* Відображення імені користувача */
+.header-username {
+  color: var(--text-muted);
+  font-weight: bold;
+}
+
+/* Кнопка "Вийти" */
+.header-logout-btn {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
+.header-logout-btn:hover {
+  text-decoration: underline;
+}
+
+/* Якщо урок успішно пройдено */
+.completed-lesson {
+  border-color: var(--success);
+  background-color: rgba(22, 163, 74, 0.03);
+}
+
+.score-info {
+  font-size: 20px;
+  color: var(--success);
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Сповіщення */
+.custom-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-notification.success {
+  background-color: var(--success);
+}
+.custom-notification.error {
+  background-color: var(--error);
+}
+.custom-notification.info {
+  background-color: #2563eb;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+  font-size: 20px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

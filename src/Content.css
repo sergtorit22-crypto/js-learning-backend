@@ -1,0 +1,87 @@
+/* 1. ВИПРАВЛЕННЯ ЦЕНТРУВАННЯ СІТКИ */
+.contentContainer {
+  display: grid;
+  /* Автоматичний розрахунок колонок: min 250px, бо шрифт великий і текст має влазити */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* ЦЕЙ РЯДОК СФОКУСУЄ СІТКУ ПОРІВНУ ПО ЦЕНТРУ ЕКРАНА */
+  padding: 40px 20px;
+}
+
+/* 2. БАЗОВІ СТИЛІ КАРТКИ УРОКУ (Синхронізовано з файлом Content.jsx) */
+.oneContainer {
+  background-color: var(--bg-card);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px; /* Трохи збільшено висоту під великий шрифт */
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Стан: Урок НЕ завершено (Оранжева рамка за замовчуванням) */
+.not-finished {
+  border: 0px solid var(--orange-accent);
+}
+
+/* Стан: Урок успішно завершено (Зелена рамка) */
+.finished {
+  border: 3px solid var(--success);
+  background-color: rgba(22, 163, 74, 0.03); /* М'який зелений підтон */
+}
+
+/* Ефект наведення на картку (універсальний) */
+.oneContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px -3px rgba(249, 115, 22, 0.2);
+}
+
+/* Ховер конкретно для незавершеного уроку (плавно перетікає в жовтий) */
+.not-finished:hover {
+  border-color: var(--orange-hover);
+}
+
+/* Текст заголовка всередині картки */
+.lesson-card-title {
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 22px; /* Оптимальний розмір для карток */
+}
+
+/* 3. ОНОВЛЕНИЙ БЛОК РЕЗУЛЬТАТІВ У КАРТЦІ */
+.result-badge-block {
+  margin-top: 12px;
+  border-top: 1px dashed var(--success);
+  padding-top: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.result-score {
+  font-size: 18px;
+  color: var(--success);
+  font-weight: 700;
+}
+
+.result-date {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  margin-top: 2px;
+}
+/* Прибираємо синій колір та підкреслення для посилань карток */
+.lesson-link {
+  text-decoration: none; /* Видаляє нижнє підкреслення */
+  color: inherit; /* Змушує посилання брати колір тексту від батьківського елемента, а не синій дефолтний */
+  display: block; /* Робить посилання повноцінним блоком, щоб ховер працював по всій площі */
+}

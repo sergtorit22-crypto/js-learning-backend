@@ -1,87 +1,144 @@
 /* 1. ВИПРАВЛЕННЯ ЦЕНТРУВАННЯ СІТКИ */
+/* ==========================================================================
+   НОВА СТРУКТУРА СІТКИ (Перебудова під широкі картки)
+   ========================================================================== */
 .contentContainer {
-  display: grid;
-  /* Автоматичний розрахунок колонок: min 250px, бо шрифт великий і текст має влазити */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-direction: column; /* Картки тепер ідуть одна під одною, як список */
+  gap: 16px; /* Акуратний відступ між плашками */
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto; /* ЦЕЙ РЯДОК СФОКУСУЄ СІТКУ ПОРІВНУ ПО ЦЕНТРУ ЕКРАНА */
-  padding: 40px 20px;
+  max-width: 1000px; /* Трохи звужуємо загальну ширину списку для балансу */
+  margin: 0 auto;
+  padding: 30px 20px;
 }
 
-/* 2. БАЗОВІ СТИЛІ КАРТКИ УРОКУ (Синхронізовано з файлом Content.jsx) */
+/* ==========================================================================
+   НОВІ ШИРОКІ КАРТКИ УРОКІВ
+   ========================================================================== */
 .oneContainer {
   background-color: var(--bg-card);
-  border-radius: 15px;
+  border-radius: 12px;
+
+  /* Перетворюємо на горизонтальний флекс-бокс */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 220px; /* Трохи збільшено висоту під великий шрифт */
-  padding: 20px;
+  flex-direction: row; /* Елементи всередині стоять у рядок */
+  align-items: center; /* Центруємо все по вертикалі */
+  justify-content: space-between; /* Назва — ліворуч, оцінка — праворуч */
+
+  height: auto; /* Прибираємо жорстку висоту 220px */
+  min-height: 80px; /* Робимо картку низькою та акуратною */
+  padding: 15px 25px; /* Більше відступів по боках і менше зверху/знизу */
   cursor: pointer;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  position: relative;
+  overflow: hidden;
   transition:
     transform 0.2s ease,
-    border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-/* Стан: Урок НЕ завершено (Оранжева рамка за замовчуванням) */
-.not-finished {
-  border: 0px solid var(--orange-accent);
-}
-
-/* Стан: Урок успішно завершено (Зелена рамка) */
-.finished {
-  border: 3px solid var(--success);
-  background-color: rgba(22, 163, 74, 0.03); /* М'який зелений підтон */
-}
-
-/* Ефект наведення на картку (універсальний) */
+/* Ефект наведення (плавне підняття) */
 .oneContainer:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px -3px rgba(249, 115, 22, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
 }
 
-/* Ховер конкретно для незавершеного уроку (плавно перетікає в жовтий) */
-.not-finished:hover {
-  border-color: var(--orange-hover);
+/* Стан: Урок НЕ завершено (М'який сіро-блакитний колір з помаранчевим акцентом ліворуч) */
+.not-finished {
+  border: 1px solid #e2e8f0;
+  background: linear-gradient(to right, #ffffff, #f8fafc);
 }
 
-/* Текст заголовка всередині картки */
+/* Кольорова лінія тепер буде не зверху, а ліворуч як вертикальний маркер */
+.not-finished::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px; /* Тонка вертикальна смужка */
+  height: 100%;
+  background: linear-gradient(to bottom, var(--orange-accent), #facc15);
+}
+
+/* Стан: Урок УСПІШНО завершено (Ніжний зелений відтінок) */
+.finished {
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  background: linear-gradient(to right, #ffffff, rgba(22, 163, 74, 0.02));
+}
+
+.finished::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px; /* Зелена смужка ліворуч для зданих уроків */
+  height: 100%;
+  background-color: var(--success);
+}
+
+/* ==========================================================================
+   ЕЛЕМЕНТИ ВСЕРЕДИНІ КАРТКИ
+   ========================================================================== */
+
+/* Назва уроку (тепер вона притиснута ліворуч) */
 .lesson-card-title {
   margin: 0;
   font-weight: 600;
-  text-align: center;
-  font-size: 22px; /* Оптимальний розмір для карток */
+  text-align: left; /* Вирівнювання по лівому краю */
+  font-size: 20px;
+  color: var(--text-main);
+  flex: 1; /* Займає весь вільний простір по центру */
 }
 
-/* 3. ОНОВЛЕНИЙ БЛОК РЕЗУЛЬТАТІВ У КАРТЦІ */
+/* Блок результатів (тепер він акуратно стоїть праворуч) */
 .result-badge-block {
-  margin-top: 12px;
-  border-top: 1px dashed var(--success);
-  padding-top: 8px;
-  width: 100%;
-  text-align: center;
+  margin-top: 0; /* Прибираємо верхній маргін */
+  border-top: none; /* Прибираємо стару пунктирну лінію */
+  padding-top: 0; /* Прибираємо падінг */
+  width: auto; /* Скасовуємо ширину 100% */
+  text-align: right; /* Вирівнюємо текст результату праворуч */
+  display: flex;
+  flex-direction: column; /* Оцінка та дата одна під одною */
+  justify-content: center;
+  margin-left: 20px;
 }
 
 .result-score {
   font-size: 18px;
   color: var(--success);
   font-weight: 700;
+  background-color: rgba(22, 163, 74, 0.1); /* Гарна плашка навколо балів */
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
 }
 
 .result-date {
-  font-size: 14px;
-  color: #666;
-  font-style: italic;
-  margin-top: 2px;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 4px;
 }
 /* Прибираємо синій колір та підкреслення для посилань карток */
 .lesson-link {
   text-decoration: none; /* Видаляє нижнє підкреслення */
   color: inherit; /* Змушує посилання брати колір тексту від батьківського елемента, а не синій дефолтний */
   display: block; /* Робить посилання повноцінним блоком, щоб ховер працював по всій площі */
+}
+@media (max-width: 768px) {
+  /* Перетворюємо широку картку назад у стовпчик суто на мобілці, щоб усе влазило */
+  .oneContainer {
+    flex-direction: column;
+    align-items: flex-start; /* Текст та бали будуть від лівого краю */
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .lesson-card-title {
+    font-size: 18px;
+  }
+
+  .result-badge-block {
+    text-align: left;
+    margin-left: 0;
+  }
 }

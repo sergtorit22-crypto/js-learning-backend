@@ -16,4 +16,8 @@ module.exports = pool;
 git add .
 git commit -m "Оновив дизайн уроків"
 git push origin master
+
+cd '/d/сайт диплом'
+cd javascript_learning
+
 */

@@ -721,3 +721,11 @@ app.delete("/lessons/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+/*
+
+npx neonctl@latest init
+
+postgresql://neondb_owner:npg_lYg4WyXnwve8@ep-lingering-tree-almuarr5.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require
+postgresql://neondb_owner:npg_lYg4WyXnwve8@ep-lingering-tree-almuarr5.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require
+*/

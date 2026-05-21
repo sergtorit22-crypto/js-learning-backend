@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "./store/useUserStore";
-import useNotificationStore from "./store/useNotificationStore"; // Твій стор сповіщень
+import useUserStore from "../store/useUserStore";
+import useNotificationStore from "../store/useNotificationStore"; // Твій стор сповіщень
 import "./AddLesson.css";
 
 export default function AddLesson() {

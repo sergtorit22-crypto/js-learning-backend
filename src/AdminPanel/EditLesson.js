@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useUserStore from "./store/useUserStore";
-import useNotificationStore from "./store/useNotificationStore";
+import useUserStore from "../store/useUserStore";
+import useNotificationStore from "../store/useNotificationStore";
 import "./AddLesson.css"; // Використовуємо ті ж стилі
 
 export default function EditLesson() {

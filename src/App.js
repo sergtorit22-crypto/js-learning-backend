@@ -4,21 +4,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Імпорт головних компонентів та сторінок
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Content from "./Content";
-import LessonWrapper from "./LessonWrapper";
-import Profile from "./Profile";
-import Registration from "./Registration";
-import Login from "./Login";
-import AddLesson from "./AddLesson";
-import ManageLessons from "./ManageLessons";
-import EditLesson from "./EditLesson";
-import About from "./About";
+import Content from "./Lessons/Content";
+import LessonWrapper from "./Lessons/LessonWrapper";
+import Profile from "./components/Profile";
+import Registration from "./Auth/Registration";
+import Login from "./Auth/Login";
+import AddLesson from "./AdminPanel/AddLesson";
+import DeleteLessons from "./AdminPanel/DeleteLessons";
+import EditLesson from "./AdminPanel/EditLesson";
+import About from "./components/About";
 
 // Імпорт глобальних сторів стану
 import useUserStore from "./store/useUserStore";
 import useNotificationStore from "./store/useNotificationStore";
-
-import "./App.css"; // Твої глобальні стилі (включаючи сповіщення)
 
 export default function App() {
   const [lessons, setLessons] = useState([]);
@@ -101,7 +99,7 @@ export default function App() {
           <Route path="/add-content" element={<AddLesson />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/manage-lessons" element={<ManageLessons />} />
+          <Route path="/manage-lessons" element={<DeleteLessons />} />
           <Route path="/edit-lesson/:id" element={<EditLesson />} />
           <Route path="/about" element={<About />} />
         </Routes>

@@ -1,6 +1,6 @@
 import React from "react";
-import "./index.css";
-import TestSystem from "./components/TestSystem";
+import "../index.css";
+import TestSystem from "./TestSystem";
 /* global CodeMirror */
 import "./Leson.css";
 const { useState, useEffect, useRef } = React;

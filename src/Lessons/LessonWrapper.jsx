@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import FullLessonPage from "./leson"; // Твій компонент сторінки уроку
+import FullLessonPage from "./leson";
 
 export default function LessonWrapper({ lessons }) {
   const { id } = useParams();

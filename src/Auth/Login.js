@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "./store/useUserStore";
-import useNotificationStore from "./store/useNotificationStore";
+import useUserStore from "../store/useUserStore";
+import useNotificationStore from "../store/useNotificationStore";
 import "./Auth.css"; // Імпортуємо стилі
 
 export default function Login() {

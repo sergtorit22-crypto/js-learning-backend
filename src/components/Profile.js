@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import useUserStore from "./store/useUserStore";
+import useUserStore from "../store/useUserStore";
 import "./Profile.css";
 
 export default function Profile() {

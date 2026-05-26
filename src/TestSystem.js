@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import useNotificationStore from "../store/useNotificationStore";
-import useUserStore from "../store/useUserStore";
+import useNotificationStore from "./store/useNotificationStore";
+import useUserStore from "./store/useUserStore";
 import "./Tests.css";
 export default function TestSystem({ questions, lessonId }) {
   const [answers, setAnswers] = useState({});

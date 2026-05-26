@@ -1,0 +1,18 @@
+.CodeMirror {
+  border: 1px solid #ccc;
+  height: 300px;
+}
+
+/* Скасовуємо загальний колір шрифту для всього, що всередині CodeMirror */
+.CodeMirror * {
+  color: inherit; /* Дозволяємо CodeMirror самому вирішувати, який колір ставити */
+}
+
+#output {
+  background: #000000;
+  color: #0f0;
+  padding: 10px;
+  min-height: 100px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}

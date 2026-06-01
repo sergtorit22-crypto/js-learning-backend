@@ -24,7 +24,7 @@ export default function TestSystem({ questions, lessonId }) {
     );
     setShowResults(true);
 
-    // Якщо користувач увійшов — зберігаємо в БД (image_d53973.png)
+    // Якщо користувач увійшов — зберігаємо в БД
     if (user && user.id) {
       setIsSubmitting(true);
       try {
@@ -43,7 +43,6 @@ export default function TestSystem({ questions, lessonId }) {
           },
         );
         if (response.ok) {
-          // ТУТ ВСТАВЛЯЄМО ПОВІДОМЛЕННЯ ПРО УСПІХ
           notify("Результат тесту успішно збережено! ", "success");
         } else {
           notify("Не вдалося зберегти результат на сервері", "error");

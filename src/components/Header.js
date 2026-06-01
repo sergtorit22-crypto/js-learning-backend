@@ -4,7 +4,6 @@ import jsLogo from "../img/JS logo.png";
 import { Link, NavLink } from "react-router-dom";
 import useUserStore from "../store/useUserStore";
 import useNotificationStore from "../store/useNotificationStore";
-//import "./Header.css"; // Підключення файлу стилів
 
 export default function Header() {
   // Отримання даних користувача та функцій керування станом

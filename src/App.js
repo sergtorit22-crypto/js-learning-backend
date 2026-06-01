@@ -61,7 +61,7 @@ export default function App() {
     if (user?.id) {
       fetchUserResults();
     }
-  }, [user]); // Виправлено: масив залежностей тепер оформлений коректно
+  }, [user]);
 
   if (loading)
     return <div className="loading-screen">Завантаження уроків...</div>;
